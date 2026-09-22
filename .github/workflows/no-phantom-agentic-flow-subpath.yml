@@ -1,3 +1,4 @@
+
 # Regression guard for issue #2578.
 #
 # Bug: The ADR-104 witness fix marker was the literal string
@@ -22,25 +23,9 @@
 name: no-phantom-agentic-flow-subpath
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'v3/@claude-flow/plugin-agent-federation/src/**'
-      - 'v3/@claude-flow/plugin-agent-federation/dist/**'
-      - 'v3/docs/adr/ADR-104-federation-wire-transport.md'
-      - 'scripts/smoke-adr104-transport.mjs'
-      - 'verification/witness-fixes.json'
-      - '.github/workflows/no-phantom-agentic-flow-subpath.yml'
-  pull_request:
-    paths:
-      - 'v3/@claude-flow/plugin-agent-federation/src/**'
-      - 'v3/@claude-flow/plugin-agent-federation/dist/**'
-      - 'v3/docs/adr/ADR-104-federation-wire-transport.md'
-      - 'scripts/smoke-adr104-transport.mjs'
-      - 'verification/witness-fixes.json'
-      - '.github/workflows/no-phantom-agentic-flow-subpath.yml'
   workflow_dispatch:
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   guard:
     runs-on: ubuntu-latest

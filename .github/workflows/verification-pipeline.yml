@@ -1,10 +1,6 @@
 name: 🔍 Verification Pipeline
 
 on:
-  push:
-    branches: [main, develop, alpha-*]
-  pull_request:
-    branches: [main, develop]
   workflow_dispatch:
     inputs:
       verification_mode:
@@ -17,6 +13,7 @@ on:
           - quick
           - security-only
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 env:
   NODE_VERSION: '20'
   CACHE_VERSION: v1

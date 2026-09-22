@@ -1,3 +1,4 @@
+
 # ADR-150 architectural constraint rule #4 enforcement.
 #
 #   "Ruflo remains operational if every MetaHarness package is removed."
@@ -14,23 +15,9 @@
 name: no-metaharness-smoke
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'plugins/**'
-      - 'scripts/**'
-      - '**/package.json'
-      - '**/package-lock.json'
-      - '.github/workflows/no-metaharness-smoke.yml'
-  pull_request:
-    paths:
-      - 'plugins/**'
-      - 'scripts/**'
-      - '**/package.json'
-      - '**/package-lock.json'
-      - '.github/workflows/no-metaharness-smoke.yml'
   workflow_dispatch:
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   smoke-without-metaharness:
     runs-on: ubuntu-latest

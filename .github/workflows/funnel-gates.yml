@@ -1,3 +1,4 @@
+
 # Funnel release gates — ADR-310.
 #
 # Enforces the hard gates on every change touching a funnel surface:
@@ -18,27 +19,6 @@
 name: funnel-gates
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'v3/@claude-flow/cli/src/funnel/**'
-      - 'v3/@claude-flow/cli/src/commands/funnel.ts'
-      - 'v3/@claude-flow/cli/src/commands/init.ts'
-      - 'v3/@claude-flow/cli/src/commands/hooks.ts'
-      - 'v3/@claude-flow/cli/src/init/statusline-generator.ts'
-      - 'v3/@claude-flow/cli/__tests__/funnel.test.ts'
-      - 'v3/docs/api/cognitum-v1.openapi.yaml'
-      - '.github/workflows/funnel-gates.yml'
-  pull_request:
-    paths:
-      - 'v3/@claude-flow/cli/src/funnel/**'
-      - 'v3/@claude-flow/cli/src/commands/funnel.ts'
-      - 'v3/@claude-flow/cli/src/commands/init.ts'
-      - 'v3/@claude-flow/cli/src/commands/hooks.ts'
-      - 'v3/@claude-flow/cli/src/init/statusline-generator.ts'
-      - 'v3/@claude-flow/cli/__tests__/funnel.test.ts'
-      - 'v3/docs/api/cognitum-v1.openapi.yaml'
-      - '.github/workflows/funnel-gates.yml'
   workflow_dispatch:
 
 # Setup mirrors the green "Build V3" job in v3-ci.yml exactly (pnpm 8 via
@@ -46,6 +26,7 @@ on:
 # filtered install under a newer pnpm resolves the bare-semver workspace
 # deps from the registry instead of linking them, and the cli build then
 # can't find @claude-flow/cli-core's dist.
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 env:
   NODE_VERSION: '20'
   PNPM_VERSION: '8'

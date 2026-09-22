@@ -1,3 +1,4 @@
+
 # metaharness-pin-drift — watch ruflo's metaharness dependency pins for drift.
 #
 # A pin correct at publish time silently rots when upstream ships a release the
@@ -7,15 +8,8 @@
 name: metaharness-pin-drift
 
 on:
-  schedule:
-    - cron: '17 5 * * 1'   # Mondays 05:17 UTC (off-peak minute)
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'v3/@claude-flow/cli/package.json'
-      - 'v3/@claude-flow/cli/src/services/distill-oracle.ts'
-      - 'scripts/check-metaharness-pins.mjs'
-
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 permissions:
   contents: read
   issues: write

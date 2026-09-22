@@ -1,3 +1,4 @@
+
 # Weekly composite audit (ADR-150 Phase 2 — iter 7).
 #
 # Runs `harness oia-audit` against the ruflo repo every Sunday at
@@ -18,8 +19,6 @@
 name: oia-audit-weekly
 
 on:
-  schedule:
-    - cron: '17 4 * * 0'  # Sundays at 04:17 UTC
   workflow_dispatch:        # manual trigger for ad-hoc audits
     # iter 109 — parameterize the policy thresholds so ad-hoc runs can
     # explore stricter/looser gates without editing YAML.
@@ -42,13 +41,7 @@ on:
           - critical
         default: high
         required: false
-  push:
-    branches: [main]
-    paths:
-      - 'plugins/ruflo-metaharness/scripts/oia-audit.mjs'
-      - 'plugins/ruflo-metaharness/scripts/_harness.mjs'
-      - '.github/workflows/oia-audit-weekly.yml'
-
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   audit:
     runs-on: ubuntu-latest

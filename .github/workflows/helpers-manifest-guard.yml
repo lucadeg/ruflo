@@ -1,3 +1,4 @@
+
 name: helpers-manifest-guard
 
 # Regression guard for issue #2593.
@@ -12,28 +13,8 @@ name: helpers-manifest-guard
 # prepublishOnly again, or if either script file goes missing.
 
 on:
-  pull_request:
-    paths:
-      - 'v3/@claude-flow/cli/.claude/helpers/auto-memory-hook.mjs'
-      - 'v3/@claude-flow/cli/.claude/helpers/hook-handler.cjs'
-      - 'v3/@claude-flow/cli/.claude/helpers/intelligence.cjs'
-      - 'v3/@claude-flow/cli/.claude/helpers/helpers.manifest.json'
-      - 'v3/@claude-flow/cli/scripts/sign-helpers.mjs'
-      - 'v3/@claude-flow/cli/scripts/verify-helpers.mjs'
-      - 'scripts/smoke-helper-signing-security.mjs'
-      - 'v3/@claude-flow/cli/scripts/prepare-publish.mjs'
-      - 'v3/@claude-flow/cli/package.json'
-      - '.github/workflows/helpers-manifest-guard.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'v3/@claude-flow/cli/.claude/helpers/**'
-      - 'v3/@claude-flow/cli/scripts/sign-helpers.mjs'
-      - 'v3/@claude-flow/cli/scripts/verify-helpers.mjs'
-      - 'scripts/smoke-helper-signing-security.mjs'
-      - 'v3/@claude-flow/cli/scripts/prepare-publish.mjs'
-      - 'v3/@claude-flow/cli/package.json'
-
+  workflow_dispatch:
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   guard:
     runs-on: ubuntu-latest

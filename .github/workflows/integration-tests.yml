@@ -1,13 +1,6 @@
 name: 🔗 Cross-Agent Integration Tests
 
 on:
-  push:
-    branches: [main, develop, alpha-*]
-  pull_request:
-    branches: [main, develop]
-  schedule:
-    # Run integration tests daily at 3 AM UTC
-    - cron: '0 3 * * *'
   workflow_dispatch:
     inputs:
       integration_scope:
@@ -29,6 +22,7 @@ on:
         required: false
         default: '10'
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 env:
   NODE_VERSION: '20'
   MAX_PARALLEL_AGENTS: 8

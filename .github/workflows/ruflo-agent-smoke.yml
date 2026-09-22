@@ -1,3 +1,4 @@
+
 # Structural smoke for the ruflo-agent plugin (local WASM runtime — rvagent —
 # plus the Anthropic Managed Agents cloud runtime, ADR-115). No network: it's
 # a static check of the plugin manifest, skills, commands, MCP-tool references,
@@ -5,18 +6,9 @@
 name: ruflo-agent-smoke
 
 on:
-  push:
-    branches: [main, develop, v3]
-    paths:
-      - 'plugins/ruflo-agent/**'
-      - '.github/workflows/ruflo-agent-smoke.yml'
-  pull_request:
-    branches: [main]
-    paths:
-      - 'plugins/ruflo-agent/**'
-      - '.github/workflows/ruflo-agent-smoke.yml'
   workflow_dispatch:
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   smoke:
     name: ruflo-agent structural smoke

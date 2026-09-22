@@ -1,3 +1,4 @@
+
 # ADR-164 architectural constraint enforcement.
 #
 #   "Ruflo remains operational if the agentbbs package is removed."
@@ -16,27 +17,9 @@
 name: no-agentbbs-smoke
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'plugins/ruflo-bbs-federation/**'
-      - 'v3/@claude-flow/cli/src/mcp-tools/agentbbs-tools.ts'
-      - 'v3/@claude-flow/cli/src/mcp-client.ts'
-      - 'v3/@claude-flow/cli/src/mcp-tools/index.ts'
-      - 'v3/@claude-flow/cli/package.json'
-      - 'scripts/smoke-agentbbs.sh'
-      - '.github/workflows/no-agentbbs-smoke.yml'
-  pull_request:
-    paths:
-      - 'plugins/ruflo-bbs-federation/**'
-      - 'v3/@claude-flow/cli/src/mcp-tools/agentbbs-tools.ts'
-      - 'v3/@claude-flow/cli/src/mcp-client.ts'
-      - 'v3/@claude-flow/cli/src/mcp-tools/index.ts'
-      - 'v3/@claude-flow/cli/package.json'
-      - 'scripts/smoke-agentbbs.sh'
-      - '.github/workflows/no-agentbbs-smoke.yml'
   workflow_dispatch:
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   smoke-without-agentbbs:
     runs-on: ubuntu-latest

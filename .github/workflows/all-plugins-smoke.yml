@@ -1,3 +1,4 @@
+
 # Meta-smoke: run every plugins/*/scripts/smoke.sh in parallel and fail the
 # build if any plugin's structural contract regresses.
 #
@@ -12,21 +13,9 @@
 name: all-plugins-smoke
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'plugins/**'
-      - 'scripts/smoke-all-plugins.mjs'
-      - 'scripts/audit-plugin-mcp-prefix.mjs'
-      - '.github/workflows/all-plugins-smoke.yml'
-  pull_request:
-    paths:
-      - 'plugins/**'
-      - 'scripts/smoke-all-plugins.mjs'
-      - 'scripts/audit-plugin-mcp-prefix.mjs'
-      - '.github/workflows/all-plugins-smoke.yml'
   workflow_dispatch:
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   smoke-all:
     runs-on: ubuntu-latest

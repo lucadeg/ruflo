@@ -1,3 +1,4 @@
+
 # Smoke + booster-only bench for plugins/ruflo-cost-tracker.
 #
 # Triggers on changes to the plugin or its corpus. Smoke is fast (~100 ms,
@@ -10,17 +11,9 @@
 name: cost-tracker-smoke
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'plugins/ruflo-cost-tracker/**'
-      - '.github/workflows/cost-tracker-smoke.yml'
-  pull_request:
-    paths:
-      - 'plugins/ruflo-cost-tracker/**'
-      - '.github/workflows/cost-tracker-smoke.yml'
   workflow_dispatch:
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   smoke:
     runs-on: ubuntu-latest

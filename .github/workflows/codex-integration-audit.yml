@@ -1,3 +1,4 @@
+
 name: codex-integration-audit
 
 # Guards the Codex ↔ Ruflo integration invariants (issue #1909):
@@ -11,24 +12,8 @@ name: codex-integration-audit
 # covered by the main CI workflow.
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'v3/@claude-flow/codex/**'
-      - 'ruflo/src/mcp-bridge/**'
-      - 'ruflo/src/ruvocal/mcp-bridge/**'
-      - '.claude/agents/dual-mode/**'
-      - 'scripts/audit-codex-integration.mjs'
-      - '.github/workflows/codex-integration-audit.yml'
-  pull_request:
-    paths:
-      - 'v3/@claude-flow/codex/**'
-      - 'ruflo/src/mcp-bridge/**'
-      - 'ruflo/src/ruvocal/mcp-bridge/**'
-      - '.claude/agents/dual-mode/**'
-      - 'scripts/audit-codex-integration.mjs'
-      - '.github/workflows/codex-integration-audit.yml'
-
+  workflow_dispatch:
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   audit:
     name: Codex integration audit

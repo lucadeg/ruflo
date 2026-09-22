@@ -1,14 +1,8 @@
+
 name: Validate Marketplace
 on:
-  push:
-    paths:
-      - '.claude-plugin/**'
-      - 'plugins/**'
-  pull_request:
-    paths:
-      - '.claude-plugin/**'
-      - 'plugins/**'
-
+  workflow_dispatch:
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   validate:
     runs-on: ubuntu-latest

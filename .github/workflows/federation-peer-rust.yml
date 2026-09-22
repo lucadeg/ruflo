@@ -1,3 +1,4 @@
+
 name: federation-peer-rust
 
 # Builds + tests the v3/crates/ruflo-federation-peer crate (ADR-120
@@ -14,17 +15,9 @@ name: federation-peer-rust
 #                   don't yet exercise the upstream APIs).
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'v3/crates/ruflo-federation-peer/**'
-      - '.github/workflows/federation-peer-rust.yml'
-  pull_request:
-    paths:
-      - 'v3/crates/ruflo-federation-peer/**'
-      - '.github/workflows/federation-peer-rust.yml'
   workflow_dispatch:
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   stable-noop:
     runs-on: ubuntu-latest

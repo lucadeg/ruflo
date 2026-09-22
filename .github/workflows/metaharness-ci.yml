@@ -1,3 +1,4 @@
+
 # MetaHarness integration gates — ADR-150 Phase 1 MVP.
 #
 # Three jobs, all fast (subprocess invocations of `npx metaharness`):
@@ -14,29 +15,9 @@
 name: metaharness-ci
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'plugins/ruflo-metaharness/**'
-      - 'v3/@claude-flow/cli/package.json'
-      - 'v3/@claude-flow/cli/src/ruvector/neural-router.ts'
-      - 'v3/@claude-flow/cli/src/ruvector/router-trajectory.ts'
-      - 'scripts/check-metaharness-compat.mjs'
-      - 'scripts/check-metaharness-pins.mjs'
-      - 'scripts/metaharness-clean-install-test.mjs'
-      - '.github/workflows/metaharness-ci.yml'
-  pull_request:
-    paths:
-      - 'plugins/ruflo-metaharness/**'
-      - 'v3/@claude-flow/cli/package.json'
-      - 'v3/@claude-flow/cli/src/ruvector/neural-router.ts'
-      - 'v3/@claude-flow/cli/src/ruvector/router-trajectory.ts'
-      - 'scripts/check-metaharness-compat.mjs'
-      - 'scripts/check-metaharness-pins.mjs'
-      - 'scripts/metaharness-clean-install-test.mjs'
-      - '.github/workflows/metaharness-ci.yml'
   workflow_dispatch:
 
+  # Automatic triggers removed; invoke through FounderOS/Admin Gate.
 jobs:
   score:
     runs-on: ubuntu-latest
